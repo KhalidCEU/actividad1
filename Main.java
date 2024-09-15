@@ -56,15 +56,18 @@ class Main {
         System.out.println("Incrementando el valor de x2 a x1 obtenemos x1 = " + x1);
     }
 
-    public static void help() {
-        System.out.println("Numero de argumentos incorrecto. Por favor use el programa de esta manera:");
+    public static void help(boolean error) {
+        if (error) {
+            System.out.print("Numero de argumentos incorrecto. ");
+        }
+        System.out.println("Por favor use el programa de esta manera:");
         System.out.println("Ej.: java Main calculos 10 20");
         System.out.println("Ej.: java Main triangulo 9 10 18");
     }
 
     public static void main(String args[]) {
         if (args[0].equals("--help")) {
-            help();
+            help(false);
             return;
         }
 
@@ -79,7 +82,7 @@ class Main {
                 triangulo(x1, x2, x3);
             }
         } else {
-            help();
+            help(true);
         }
     }
 }
